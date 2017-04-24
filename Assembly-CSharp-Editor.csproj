@@ -69,6 +69,9 @@
      <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />
      <None Include="Assets\StreamingAssets\QCAR\BoardGames.xml" />
      <None Include="Assets\Vuforia\Shaders\Text3D.shader" />
+ <Reference Include="Assembly-UnityScript-Editor-firstpass">
+ <HintPath>C:/Users/mitadm/Desktop/JellyfishAR/Library/ScriptAssemblies/Assembly-UnityScript-Editor-firstpass.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity5.4/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -96,6 +99,12 @@
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Program Files/Unity5.4/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
+ <Reference Include="Vuforia.UnityExtensions.Editor">
+ <HintPath>C:/Users/mitadm/Desktop/JellyfishAR/Assets/Vuforia/Editor/Scripts/Vuforia.UnityExtensions.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Vuforia.UnityExtensions">
+ <HintPath>C:/Users/mitadm/Desktop/JellyfishAR/Assets/Vuforia/Scripts/Internal/Vuforia.UnityExtensions.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity5.4/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -105,12 +114,10 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity5.4/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="Vuforia.UnityExtensions.Editor">
- <HintPath>C:/Users/mitadm/Desktop/JellyfishAR/Assets/Vuforia/Editor/Scripts/Vuforia.UnityExtensions.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Vuforia.UnityExtensions">
- <HintPath>C:/Users/mitadm/Desktop/JellyfishAR/Assets/Vuforia/Scripts/Internal/Vuforia.UnityExtensions.dll</HintPath>
- </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{9D1265D3-28C5-DEE7-93CA-4548734C63E2}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

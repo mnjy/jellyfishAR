@@ -55,6 +55,7 @@
      <Compile Include="Assets\Common\SplashAbout\LoadingScreen.cs" />
      <Compile Include="Assets\Common\TapHandler.cs" />
      <Compile Include="Assets\Common\TrackableSettings.cs" />
+     <Compile Include="Assets\Scripts\Bob.cs" />
      <Compile Include="Assets\Vuforia\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CloudRecoBehaviour.cs" />
      <Compile Include="Assets\Vuforia\Scripts\CylinderTargetBehaviour.cs" />
