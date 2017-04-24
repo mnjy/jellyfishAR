@@ -41,8 +41,8 @@ public class JellyfishMovement : MonoBehaviour {
         }
 
         //update the position
-        if (goingUp) transform.Translate(transform.up * bobSpeed);
-        else transform.Translate(transform.up * bobSpeed * -1);
+        if (goingUp) transform.Translate(transform.up * bobSpeed * Time.deltaTime);
+        else transform.Translate(transform.up * bobSpeed * Time.deltaTime * -1);
 
         //check if should switch direction
         float displacement = Vector3.Distance(transform.position, basePosition);
@@ -62,8 +62,8 @@ public class JellyfishMovement : MonoBehaviour {
         {
             Vector3 movementDirection = (destination - basePosition).normalized;
             print(movementDirection);
-            transform.Translate(movementDirection * moveSpeed);
-            basePosition += movementDirection * moveSpeed;
+            transform.Translate(movementDirection * moveSpeed * Time.deltaTime);
+            basePosition += movementDirection * moveSpeed * Time.deltaTime;
         }
     }
 }
