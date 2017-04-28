@@ -13,7 +13,8 @@ public class JellyfishMovement : MonoBehaviour {
     float startDelay;
 
     //For moving to/from finger
-    Vector3 destination = Vector3.zero;
+    Vector3 startingPosition;
+    public Vector3 destination = Vector3.zero;
     float depth = 2f;
     public float moveSpeed;
     float distanceThreshold = 1f;
@@ -24,6 +25,7 @@ public class JellyfishMovement : MonoBehaviour {
     void Start () {
         basePosition = transform.position;
         goingUp = true;
+        startingPosition = transform.position;
 
         //add a random delay so that they don't all start at the same time
         currTime = 0;
@@ -75,8 +77,8 @@ public class JellyfishMovement : MonoBehaviour {
             timeSpentAtFingerPos += Time.deltaTime;
             if (timeSpentAtFingerPos > maxTimeToSpendAtFingerPos)
             {
-                //pick a random new destination
-                destination = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), transform.position.z); //stay in the same z plane
+                //go back to starting position
+                destination = startingPosition;
                 //reset timer
                 timeSpentAtFingerPos = 0;
             }
