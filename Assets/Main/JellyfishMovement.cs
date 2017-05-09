@@ -17,8 +17,7 @@ public class JellyfishMovement : MonoBehaviour {
     public Vector3 destination = Vector3.zero;
     float depth = 2f;
     public float moveSpeed;
-    float distanceThreshold = 1f;
-    bool movingAwayFromFinger = false;
+    float distanceThreshold = 2f;
     public float maxTimeToSpendAtFingerPos = 2f;
     float timeSpentAtFingerPos = 0;
     
@@ -53,14 +52,16 @@ public class JellyfishMovement : MonoBehaviour {
         float displacement = Vector3.Distance(transform.position, basePosition);
         if (displacement >= maxDisplacement) goingUp = !goingUp;
     }
-
+    
     void MoveToOrFromFingerPos()
     {
         //check if user touched screen
         if (Input.touchCount > 0)
         {
-            destination = Input.GetTouch(0).position;
-            destination.z = depth;
+            Vector2 touchInput = Input.GetTouch(0).position;
+            touchInput.y = Screen.height - touchInput.y;
+            destination = Camera.main.ScreenToWorldPoint(touchInput);
+            destination.z = basePosition.z;
             timeSpentAtFingerPos = 0;
         }
 
