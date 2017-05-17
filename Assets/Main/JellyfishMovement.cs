@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class JellyfishMovement : MonoBehaviour {
@@ -21,10 +22,13 @@ public class JellyfishMovement : MonoBehaviour {
     public float maxTimeToSpendAtFingerPos = 2f;
     float timeSpentAtFingerPos = 0;
     
+    public Text text;
+
     void Start () {
         basePosition = transform.position;
         goingUp = true;
         startingPosition = transform.position;
+        text.text = startingPosition.ToString();
 
         //add a random delay so that they don't all start at the same time
         currTime = 0;
@@ -58,11 +62,13 @@ public class JellyfishMovement : MonoBehaviour {
         //check if user touched screen
         if (Input.touchCount > 0)
         {
-            Vector2 touchInput = Input.GetTouch(0).position;
+            Vector3 touchInput = Input.GetTouch(0).position;
             touchInput.y = Screen.height - touchInput.y;
+            touchInput.z = basePosition.z;
             destination = Camera.main.ScreenToWorldPoint(touchInput);
             destination.z = basePosition.z;
             timeSpentAtFingerPos = 0;
+            text.text = startingPosition + "; " + touchInput + "; " + destination + ";";
         }
 
         if (destination == Vector3.zero)
@@ -71,7 +77,7 @@ public class JellyfishMovement : MonoBehaviour {
         } else if (Vector3.Distance(destination, basePosition) > distanceThreshold)
         {
             Vector3 movementDirection = (destination - basePosition).normalized;
-            transform.Translate(movementDirection * moveSpeed * Time.deltaTime);
+            transform.Translate(movementDirection * moveSpeed * Time.deltaTime, Space.World);
             basePosition += movementDirection * moveSpeed * Time.deltaTime;
         } else
         {
